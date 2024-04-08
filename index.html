@@ -6,8 +6,22 @@
     <title>Word List</title>
   </head>
   <body>
-    <h2>Units</h2>
+    <h2>text</h2>
     <div id="Units"></div>
+    <form id="unit">
+      <label for="stat_pri">Primary attack</label>
+      <input id="stat_pri" type="number" name="stat_pri" min="1" max="60" />
+      <label for="stat_sec">Secondary attack</label>
+      <input id="stat_sec" type="number" name="stat_sec" min="1" max="60" />
+      <label for="stat_pri_armour">Defence</label>
+      <input
+        id="stat_pri_armour"
+        type="number"
+        name="stat_pri_armour"
+        min="1"
+        max="60"
+      />
+    </form>
 
     <script type="module" src="script.js"></script>
   </body>

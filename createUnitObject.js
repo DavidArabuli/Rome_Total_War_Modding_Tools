@@ -31,7 +31,26 @@ export function createUnitObject(unitBlock) {
   // ==== faction name ====
 
   const factionName = unitBlock[unitBlock.length - 1].split(/\s{2,}/);
-  unitObject.faction = factionName[1];
+
+  unitObject.faction = factionName[1].split(",").map((item) => item.trim());
+  if (unitObject.faction.includes("eastern")) {
+    unitObject.faction.push("armenia");
+    unitObject.faction.push("pontus");
+    unitObject.faction.push("parthia");
+  } else if (
+    unitObject.faction.includes("romans_julii") ||
+    unitObject.faction.includes("romans_brutii") ||
+    unitObject.faction.includes("romans_scipii") ||
+    unitObject.faction.includes("romans_senate") ||
+    unitObject.faction.includes("roman")
+  ) {
+    unitObject.faction.push("romans");
+  } else if (
+    unitObject.faction.includes("greek_cities") ||
+    unitObject.faction.includes("greek")
+  ) {
+    unitObject.faction.push("greeks");
+  }
 
   //  ==== unit primary attack ====
 

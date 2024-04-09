@@ -7,21 +7,32 @@
   </head>
   <body>
     <h2>text</h2>
-    <div id="Units"></div>
-    <form id="unit">
-      <label for="stat_pri">Primary attack</label>
-      <input id="stat_pri" type="number" name="stat_pri" min="1" max="60" />
-      <label for="stat_sec">Secondary attack</label>
-      <input id="stat_sec" type="number" name="stat_sec" min="1" max="60" />
-      <label for="stat_pri_armour">Defence</label>
-      <input
-        id="stat_pri_armour"
-        type="number"
-        name="stat_pri_armour"
-        min="1"
-        max="60"
-      />
+    <form id="Units">
+      <div id="barbarians">
+        <h3>Barbarians</h3>
+      </div>
+      <div id="greeks">
+        <h3>Greeks</h3>
+      </div>
+      <div id="romans">
+        <h3>Romans</h3>
+      </div>
+
+      <div id="eastern">
+        <h3>Eastern nations</h3>
+      </div>
+      <div id="southern">
+        <h3>Southern nations</h3>
+      </div>
+      <div id="slaves">
+        <h3>Slaves and Mercenaries</h3>
+      </div>
+      <button id="submitBtn" type="submit">submit</button>
     </form>
+    <button type="button" class="save" id="saveBtn">save your changes</button>
+    <button type="button" class="load" id="loadBtn">
+      load your saved data
+    </button>
 
     <script type="module" src="script.js"></script>
   </body>

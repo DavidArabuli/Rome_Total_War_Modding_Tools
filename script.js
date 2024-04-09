@@ -1,17 +1,41 @@
 import { blockSplitter } from "./blockSplitter.js";
-import { createUnitObject } from "./createUnitObject.js";
-import { factionExtractor } from "./factionExtractor.js";
-import { elementCreator } from "./elementCreator.js";
 import { initialRender } from "./initialRender.js";
+import { gatherInputData } from "./gatherData.js";
+import {
+  loadFromLocStorage,
+  localStorageSetup,
+  saveToLocalStorage,
+} from "./localStorageFuncs.js";
 
 async function getFile() {
-  const response = await fetch("export_descr_unit.txt");
-  const data = await response.text();
-  console.log("data from data");
-  const splittedTextArray = blockSplitter(data);
-  // console.log(splittedTextArray);
-
-  initialRender(splittedTextArray);
-  // return splittedTextArray;
+  try {
+    const response = await fetch("descr_unit.txt");
+    const data = await response.text();
+    console.log("data fetched");
+    return data;
+  } catch (error) {
+    console.log("ERROR!", error);
+  }
 }
-getFile();
+
+async function initializeApp() {
+  const data = await getFile();
+  if (data) {
+    const splittedTextArray = blockSplitter(data);
+    initialRender(splittedTextArray);
+  } else {
+    console.error("failed to fetch data");
+  }
+}
+
+await initializeApp();
+gatherInputData();
+localStorageSetup();
+// const saveBtn = document.querySelector("#saveBtn");
+// saveBtn.addEventListener("click", () => {
+//   saveToLocalStorage();
+// });
+// const loadBtn = document.querySelector("#loadBtn");
+// loadBtn.addEventListener("click", () => {
+//   loadFromLocStorage();
+// });

@@ -3,5 +3,3 @@ export function blockSplitter(text) {
 
   return blocks.map((block) => block.trim());
 }
-
-export function valueFinder() {}

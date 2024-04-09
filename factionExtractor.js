@@ -2,9 +2,8 @@ export function factionExtractor(allUnitObjects) {
   const uniqueFactions = new Set();
   allUnitObjects.forEach((item) => {
     if (!item.isShip) {
-      // Flatten the faction array to remove nested arrays
       const flatFactions = item.faction.flat();
-      // Add unique factions to the set
+
       flatFactions.forEach((faction) => {
         if (
           faction === "romans_julii" ||

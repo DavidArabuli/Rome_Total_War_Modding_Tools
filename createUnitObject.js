@@ -1,4 +1,4 @@
-export function createUnitObject(unitBlock) {
+export function createInitialUnitObject(unitBlock) {
   const unitObject = {
     insideName: "",
     renderName: "",
@@ -32,33 +32,13 @@ export function createUnitObject(unitBlock) {
 
   const factionName = unitBlock[unitBlock.length - 1].split(/\s{2,}/);
 
-  unitObject.faction = factionName[1].split(",").map((item) => item.trim());
-  if (unitObject.faction.includes("eastern")) {
-    unitObject.faction.push("armenia");
-    unitObject.faction.push("pontus");
-    unitObject.faction.push("parthia");
-  } else if (
-    unitObject.faction.includes("romans_julii") ||
-    unitObject.faction.includes("romans_brutii") ||
-    unitObject.faction.includes("romans_scipii") ||
-    unitObject.faction.includes("romans_senate") ||
-    unitObject.faction.includes("roman")
-  ) {
-    unitObject.faction.push("romans");
-  } else if (
-    unitObject.faction.includes("greek_cities") ||
-    unitObject.faction.includes("greek")
-  ) {
-    unitObject.faction.push("greeks");
-  }
-
+  unitObject.faction = factionName[1].split(",").map((item) => item);
   //  ==== unit primary attack ====
 
   const statPriAttackRegex = /stat_pri\s+(\d+)/;
   unitBlock.forEach((line) => {
     const match = line.match(statPriAttackRegex);
     if (match) {
-      // console.log(match[1]);
       const attackPrimary = match[1];
 
       unitObject.attackPrimary = attackPrimary;
@@ -70,7 +50,6 @@ export function createUnitObject(unitBlock) {
   unitBlock.forEach((line) => {
     const match = line.match(statSecAttackRegex);
     if (match) {
-      // console.log(match[1]);
       const attackSecondary = match[1];
 
       unitObject.attackSecondary = attackSecondary;
@@ -83,7 +62,6 @@ export function createUnitObject(unitBlock) {
   unitBlock.forEach((line) => {
     const match = line.match(statPriArmourRegex);
     if (match) {
-      // console.log(match[1]);
       const defence = match[1];
 
       unitObject.defence = defence;

@@ -1,3 +1,5 @@
+// troubleshooting util functions, to check, whether we got all the info from inputs and it matches number of objects, and that nothing was lost. Currently it is not in use anywhere.
+
 const objArray = [
   { insideName: "barbarian", faction: "rome" },
   { insideName: "legio", faction: "rome" },

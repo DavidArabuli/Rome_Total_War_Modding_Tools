@@ -1,3 +1,6 @@
+// saving to local storage and loading from it happens here.
+// it can be expanded for more inputs and objects with more unit parameters, but you have to add them here, in switch block, if you want Load functionality to take them into account.
+
 import { prepareUnitsData } from "./gatherData.js";
 
 export function saveToLocalStorage() {

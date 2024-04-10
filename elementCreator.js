@@ -1,5 +1,10 @@
+// dynamically generates HTML elements with values from unit object, and organizes it by in-game regions\cultures. Can be expanded by adding extra HTML with new unit parameters.
+
+// we are also disabling secondary attack input for some units, since game will crash, if unit which has no missile weapon gets non-zero secondary attack. Do not remove that condition!
+
 export function inputCreator(unitObject) {
   const { attackPrimary, attackSecondary, defence, insideName } = unitObject;
+  const secondaryDisabled = attackSecondary == 0 ? "disabled" : "";
   return `
       <p>Primary attack</p>
       <input
@@ -16,7 +21,8 @@ export function inputCreator(unitObject) {
         value="${attackSecondary}"
         min="0"
         max="63"
-        data-id="" />
+        data-id=""
+        ${secondaryDisabled} />
       <p>Defence</p>
       <input
         value="${defence}"
@@ -41,7 +47,9 @@ export function elementCreator(unitObject) {
   const unitStatsDiv = document.createElement("div");
   unitStatsDiv.innerHTML = inputCreator(unitObject);
 
-  unitStatsDiv.id = unitObject.insideName;
+  // unit type ends up being more unique, then render and inside name, so we are using it instead now.
+
+  unitStatsDiv.id = unitObject.type;
   const inputs = unitStatsDiv.querySelectorAll("input");
   inputs.forEach((input) => {
     input.setAttribute("data-id", unitStatsDiv.id);
@@ -71,7 +79,6 @@ export function elementCreator(unitObject) {
     romans.appendChild(name);
     romans.appendChild(factionList);
     romans.appendChild(unitStatsDiv);
-    // unitStatsDiv.id = unitObject.insideName;
   }
   // barbarians
   else if (
@@ -111,7 +118,7 @@ export function elementCreator(unitObject) {
     southern.appendChild(factionList);
     southern.appendChild(unitStatsDiv);
   }
-  // slaves
+  // slaves and mercenaries
   else if (
     unitObject.faction[0] === "slave" ||
     unitObject.insideName.includes("merc")

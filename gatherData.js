@@ -1,6 +1,11 @@
+// parsing inputs` values and forming it for the local storage or for submission.
+// can be expanded and can accept more unit properties and input values, as long as they are taken care of in the unitFileEditing.js , further down the road.
+
+import { editTextFile } from "./unitFileEditing.js";
+
 export function prepareUnitsData(inputValues) {
   const unitsData = [];
-
+  console.log(inputValues);
   inputValues.forEach((input) => {
     const unitId = input.dataset.id;
     const name = input.name;
@@ -27,6 +32,7 @@ export function gatherInputData() {
     event.preventDefault();
     const inputValues = form.querySelectorAll("input");
 
-    prepareUnitsData(inputValues);
+    const valuesForEditing = prepareUnitsData(inputValues);
+    editTextFile(valuesForEditing);
   });
 }

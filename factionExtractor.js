@@ -1,3 +1,5 @@
+// not used atm, was used in first version of app. Up to deletion.
+
 export function factionExtractor(allUnitObjects) {
   const uniqueFactions = new Set();
   allUnitObjects.forEach((item) => {

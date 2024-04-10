@@ -1,3 +1,5 @@
+// array of strings, that identifies a single unit in a text file, is processed here, and necessary values get extracted from appropriate strings.
+
 export function createInitialUnitObject(unitBlock) {
   const unitObject = {
     insideName: "",
@@ -7,6 +9,7 @@ export function createInitialUnitObject(unitBlock) {
     attackSecondary: 0,
     defence: 0,
     isShip: false,
+    type: "",
   };
   // ==== identify naval units ====
   const isShipRegex = /category\s+ship/;
@@ -27,6 +30,11 @@ export function createInitialUnitObject(unitBlock) {
 
   const insideName = unitBlock[1].split(/\s{2,}/);
   unitObject.insideName = insideName[1];
+
+  // ==== unit type ====
+
+  const type = unitBlock[0].split(/\s{2,}/);
+  unitObject.type = type[1];
 
   // ==== faction name ====
 

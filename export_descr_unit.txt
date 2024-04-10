@@ -1775,9 +1775,9 @@ mount_effect     elephant -8, camel -4
 attributes       sea_faring, hide_forest, hardy, cantabrian_circle
 formation        1.5, 4, 3, 6, 4, square
 stat_health      1, 0
-stat_pri         44, 4, arrow, 170, 30, missile, archery, piercing, none, 25 ,1
+stat_pri         8, 4, arrow, 170, 30, missile, archery, piercing, none, 25 ,1
 stat_pri_attr    no
-stat_sec         22, 6, no, 0, 0, melee, simple, piercing, sword, 25 ,1
+stat_sec         10, 6, no, 0, 0, melee, simple, piercing, sword, 25 ,1
 stat_sec_attr    no
 stat_pri_armour  9, 3, 0, metal
 stat_sec_armour  0, 1, flesh
@@ -4892,8 +4892,8 @@ stat_cost        2, 980, 160, 100, 150, 980
 ownership        seleucid
  
  
-type roman peasant
-dictionary roman_peasant;Peasants
+type             roman peasant
+dictionary       roman_peasant      ; Peasants
 category         infantry
 class            light
 voice_type       Light_1
@@ -4905,7 +4905,7 @@ stat_pri         1, 0, no, 0, 0, melee, simple, piercing, knife, 25 ,1
 stat_pri_attr    no
 stat_sec         0, 0, no, 0, 0, no, no, no, none, 25 ,1
 stat_sec_attr    no
-stat_pri_armour  0, 19, 0, flesh
+stat_pri_armour  0, 1, 0, flesh
 stat_sec_armour  0, 0, flesh
 stat_heat        1
 stat_ground      2, 0, 0, 0

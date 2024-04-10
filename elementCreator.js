@@ -3,9 +3,11 @@
 // we are also disabling secondary attack input for some units, since game will crash, if unit which has no missile weapon gets non-zero secondary attack. Do not remove that condition!
 
 export function inputCreator(unitObject) {
-  const { attackPrimary, attackSecondary, defence, insideName } = unitObject;
+  const { attackPrimary, attackSecondary, defence, insideName, renderName } =
+    unitObject;
   const secondaryDisabled = attackSecondary == 0 ? "disabled" : "";
   return `
+  <h4>${renderName}</h4>
       <p>Primary attack</p>
       <input
         value="${attackPrimary}"
@@ -40,14 +42,16 @@ export function inputCreator(unitObject) {
 }
 
 export function elementCreator(unitObject) {
-  const name = document.createElement("h5");
+  const name = document.createElement("h4");
   const factionList = document.createElement("h6");
   name.innerText = unitObject.renderName;
-  factionList.innerText = unitObject.faction;
+
+  factionList.innerText = `factions:${unitObject.faction}`;
   const unitStatsDiv = document.createElement("div");
   unitStatsDiv.innerHTML = inputCreator(unitObject);
+  unitStatsDiv.classList.add("unit-card");
 
-  // unit type ends up being more unique, then render and inside name, so we are using it instead now.
+  // unit type ends up being more unique, than render and inside name, so we are using it instead now.
 
   unitStatsDiv.id = unitObject.type;
   const inputs = unitStatsDiv.querySelectorAll("input");
@@ -63,8 +67,8 @@ export function elementCreator(unitObject) {
     unitObject.faction.includes("parthia")
   ) {
     const easternDiv = document.querySelector("#eastern");
-    easternDiv.appendChild(name);
-    easternDiv.appendChild(factionList);
+    // easternDiv.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     easternDiv.appendChild(unitStatsDiv);
   }
   // romans
@@ -76,8 +80,8 @@ export function elementCreator(unitObject) {
     unitObject.faction.includes("roman")
   ) {
     const romans = document.querySelector("#romans");
-    romans.appendChild(name);
-    romans.appendChild(factionList);
+    // romans.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     romans.appendChild(unitStatsDiv);
   }
   // barbarians
@@ -91,8 +95,8 @@ export function elementCreator(unitObject) {
     unitObject.faction.includes("spain")
   ) {
     const barbarians = document.querySelector("#barbarians");
-    barbarians.appendChild(name);
-    barbarians.appendChild(factionList);
+    // barbarians.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     barbarians.appendChild(unitStatsDiv);
   }
   // greeks
@@ -103,8 +107,8 @@ export function elementCreator(unitObject) {
     unitObject.faction.includes("macedon")
   ) {
     const greeks = document.querySelector("#greeks");
-    greeks.appendChild(name);
-    greeks.appendChild(factionList);
+    // greeks.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     greeks.appendChild(unitStatsDiv);
   }
   // southern
@@ -114,8 +118,8 @@ export function elementCreator(unitObject) {
     unitObject.faction.includes("carthage")
   ) {
     const southern = document.querySelector("#southern");
-    southern.appendChild(name);
-    southern.appendChild(factionList);
+    // southern.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     southern.appendChild(unitStatsDiv);
   }
   // slaves and mercenaries
@@ -124,8 +128,8 @@ export function elementCreator(unitObject) {
     unitObject.insideName.includes("merc")
   ) {
     const slaves = document.querySelector("#slaves");
-    slaves.appendChild(name);
-    slaves.appendChild(factionList);
+    // slaves.appendChild(name);
+    unitStatsDiv.appendChild(factionList);
     slaves.appendChild(unitStatsDiv);
   }
 }

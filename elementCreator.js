@@ -7,7 +7,7 @@ export function inputCreator(unitObject) {
     unitObject;
   const secondaryDisabled = attackSecondary == 0 ? "disabled" : "";
   return `
-  <h4>${renderName}</h4>
+  <h4 class="unit-name">${renderName}</h4>
       <p>Primary attack</p>
       <input
         value="${attackPrimary}"
@@ -38,15 +38,16 @@ export function inputCreator(unitObject) {
     
     <br>
     <br>
-    -------------------------`;
+    ---------------------------------------------`;
 }
 
 export function elementCreator(unitObject) {
   const name = document.createElement("h4");
-  const factionList = document.createElement("h6");
+  const factionList = document.createElement("p");
+  factionList.classList.add("faction-list");
   name.innerText = unitObject.renderName;
 
-  factionList.innerText = `factions:${unitObject.faction}`;
+  factionList.innerText = `factions: ${unitObject.faction}`;
   const unitStatsDiv = document.createElement("div");
   unitStatsDiv.innerHTML = inputCreator(unitObject);
   unitStatsDiv.classList.add("unit-card");

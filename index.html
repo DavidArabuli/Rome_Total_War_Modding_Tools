@@ -4,35 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Word List</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
-    <h2>text</h2>
+    <nav class="navbar">
+      <h3>Rome Total War Modding Tool</h3>
+      <div class="buttonHolder">
+        <button type="button" class="save btn" id="saveBtn">
+          save your changes
+        </button>
+        <button type="button" class="load btn" id="loadBtn">
+          load your saved data
+        </button>
+      </div>
+    </nav>
+    <section class="section">
+      <p>
+        Working with Rome Total War text files is a tedious and error-prone
+        work. This RTW modding tool allows you to safely modify attack and
+        defence values of Rome Total War units, without messing anything
+        important in your game files. Code that runs behind the scene will
+        create "export_descr_unit.txt" file based on changes you make and will
+        download it on your computer as soon as you click "submit" button.
+        <br />
+        The file is fully ready to be used - just throw it into Data folder of
+        your RTW game directory and replace your original file. If during the
+        editing you want to take a break or just want to avoid losing values
+        that you have typed so far - save your progress with "save current
+        values" button, and when you come back - press "load saved data". It
+        will load your latest save, and then you can continue modding.
+      </p>
+      <p>
+        Note #1 - units that have no secondary attack, don`t have missile
+        weapons. This is why appropriate input is disabled.
+        <br />
+        Note #2 - units that DO have missile weapons use "primary attack" for
+        ranged damage, and secondary attack for melee weapon damage.
+        <br />
+        Note #3 - for units that have crew - like siege machines, the primary
+        attack defines damage of the crew, while secondary attack defines damage
+        of the actual siege machine.
+        <br />
+        Note #4 - this tool was made for and was tested for Rome Total War
+        original(!) game.
+      </p>
+    </section>
     <form id="Units">
-      <div id="barbarians">
-        <h3>Barbarians</h3>
-      </div>
-      <div id="greeks">
-        <h3>Greeks</h3>
-      </div>
-      <div id="romans">
-        <h3>Romans</h3>
-      </div>
+      <button id="submitBtn" type="submit" class="submit btn">
+        submit changes and download file
+      </button>
+      <h3>Barbarians</h3>
+      <div class="factionDiv barbarians" id="barbarians"></div>
+      <h3>Greeks</h3>
+      <div class="factionDiv greeks" id="greeks"></div>
+      <h3>Romans</h3>
+      <div class="factionDiv romans" id="romans"></div>
 
-      <div id="eastern">
-        <h3>Eastern nations</h3>
-      </div>
-      <div id="southern">
-        <h3>Southern nations</h3>
-      </div>
-      <div id="slaves">
-        <h3>Slaves and Mercenaries</h3>
-      </div>
-      <button id="submitBtn" type="submit">submit</button>
+      <h3>Eastern nations</h3>
+      <div class="factionDiv eastern" id="eastern"></div>
+      <h3>Southern nations</h3>
+      <div class="factionDiv southern" id="southern"></div>
+      <h3>Slaves and Mercenaries</h3>
+      <div class="factionDiv slaves" id="slaves"></div>
     </form>
-    <button type="button" class="save" id="saveBtn">save your changes</button>
-    <button type="button" class="load" id="loadBtn">
-      load your saved data
-    </button>
 
     <script type="module" src="script.js"></script>
   </body>

@@ -38,7 +38,7 @@ export function inputCreator(unitObject) {
     
     <br>
     <br>
-    ---------------------------------------------`;
+    <div class="dotted-line"></div>`;
 }
 
 export function elementCreator(unitObject) {
@@ -47,9 +47,23 @@ export function elementCreator(unitObject) {
   factionList.classList.add("faction-list");
   name.innerText = unitObject.renderName;
 
-  factionList.innerText = `factions: ${unitObject.faction}`;
+  // to make names prettier for rendering
+
+  factionList.innerText =
+    unitObject.faction.includes("romans_julii") ||
+    unitObject.faction.includes("romans_brutii") ||
+    unitObject.faction.includes("romans_scipii") ||
+    unitObject.faction.includes("romans_senate") ||
+    unitObject.faction.includes("roman")
+      ? "faction: romans"
+      : unitObject.faction.includes("greek") ||
+        unitObject.faction.includes("greek_cities")
+      ? "faction: greeks"
+      : `factions: ${unitObject.faction}`;
+
   const unitStatsDiv = document.createElement("div");
   unitStatsDiv.innerHTML = inputCreator(unitObject);
+
   unitStatsDiv.classList.add("unit-card");
 
   // unit type ends up being more unique, than render and inside name, so we are using it instead now.

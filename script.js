@@ -29,3 +29,18 @@ async function initializeApp() {
 await initializeApp();
 gatherInputData();
 localStorageSetup();
+
+const expandBtns = document.querySelectorAll(".expandDiv button");
+
+// open class adds display flex, instead of display:none
+
+expandBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    const factionDiv = e.target.parentElement.nextElementSibling;
+    console.log(factionDiv);
+    factionDiv.classList.toggle("open");
+    btn.textContent = factionDiv.classList.contains("open")
+      ? "Collapse"
+      : "Expand";
+  });
+});

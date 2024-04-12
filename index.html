@@ -3,13 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./myfavicon.png" />
     <title>Word List</title>
+    <!-- icons -->
+    <!-- <link href="../fontawesome-free-6.5.2-web/css/all.css" rel="stylesheet" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- styles -->
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <nav class="navbar">
-      <h3>Rome Total War Modding Tool</h3>
-      <div class="buttonHolder">
+      <div class="title">
+        <h3>Rome Total War Modding Tool</h3>
+        <div class="icon-block">
+          <!-- <h5>source code:</h5> -->
+          <a href="https://github.com/DavidArabuli/Rome_Total_War_Modding_Tools"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="button-holder">
         <button type="button" class="save btn" id="saveBtn">
           save your changes
         </button>
@@ -23,51 +43,119 @@
         Working with Rome Total War text files is a tedious and error-prone
         work. This RTW modding tool allows you to safely modify attack and
         defence values of Rome Total War units, without messing anything
-        important in your game files. Code that runs behind the scene will
-        create "export_descr_unit.txt" file based on changes you make and will
-        download it on your computer as soon as you click "submit" button.
+        important in your game files.
+        <br />
+        Code that runs behind the scene will create "export_descr_unit.txt" file
+        based on changes you made and will download it on your computer as soon
+        as you click "submit" button.
+        <br />
         <br />
         The file is fully ready to be used - just throw it into Data folder of
-        your RTW game directory and replace your original file. If during the
-        editing you want to take a break or just want to avoid losing values
-        that you have typed so far - save your progress with "save current
-        values" button, and when you come back - press "load saved data". It
-        will load your latest save, and then you can continue modding.
+        your RTW game directory and replace your original file. (create a backup
+        file before doing it!)<br />
+        If during the editing you want to take a break or just want to avoid
+        losing values that you have typed so far - save your progress with
+        "save" button, and when you come back - press "load" button. It will
+        load your latest save, and then you can continue modding.
       </p>
+
       <p>
-        Note #1 - units that have no secondary attack, don`t have missile
-        weapons. This is why appropriate input is disabled.
+        <span>Note #1</span> - units that have no secondary attack, don`t have
+        missile weapons. This is why their sec. input is disabled.
         <br />
-        Note #2 - units that DO have missile weapons use "primary attack" for
-        ranged damage, and secondary attack for melee weapon damage.
         <br />
-        Note #3 - for units that have crew - like siege machines, the primary
-        attack defines damage of the crew, while secondary attack defines damage
-        of the actual siege machine.
+        <span>Note #2</span> - units that DO have missile weapons use "primary
+        attack" for ranged damage, and secondary attack for melee weapon damage.
         <br />
-        Note #4 - this tool was made for and was tested for Rome Total War
-        original(!) game.
+        <br />
+        <span>Note #3</span> - for units that have crew - like siege machines,
+        primary attack defines damage of the crew, while secondary attack
+        defines damage of the actual siege machine.
+        <br />
+        <br />
+        <span>Note #4</span> - this tool was made for and was tested for Rome
+        Total War original(!) game.
       </p>
     </section>
     <form id="Units">
       <button id="submitBtn" type="submit" class="submit btn">
         submit changes and download file
       </button>
-      <h3>Barbarians</h3>
-      <div class="factionDiv barbarians" id="barbarians"></div>
-      <h3>Greeks</h3>
-      <div class="factionDiv greeks" id="greeks"></div>
-      <h3>Romans</h3>
-      <div class="factionDiv romans" id="romans"></div>
+      <!-- barbarians -->
+      <div class="expandDiv">
+        <h3 class="faction-name">Barbarians</h3>
 
-      <h3>Eastern nations</h3>
+        <button
+          type="button"
+          class="barbarians btn expandBtn"
+          id="barbariansBtn"
+        >
+          expand
+        </button>
+      </div>
+      <div class="factionDiv barbarians" id="barbarians"></div>
+      <!-- greeks -->
+
+      <div class="expandDiv">
+        <h3 class="faction-name">Greeks</h3>
+
+        <button type="button" class="greeks btn expandBtn" id="greeksBtn">
+          expand
+        </button>
+      </div>
+      <div class="factionDiv greeks" id="greeks"></div>
+      <!-- romans -->
+
+      <div class="expandDiv">
+        <h3 class="faction-name">Romans</h3>
+
+        <button type="button" class="romans btn expandBtn" id="RomansBtn">
+          expand
+        </button>
+      </div>
+      <div class="factionDiv romans" id="romans"></div>
+      <!-- eastern -->
+
+      <div class="expandDiv">
+        <h3 class="faction-name">Eastern nations</h3>
+
+        <button type="button" class="eastern btn expandBtn" id="easternBtn">
+          expand
+        </button>
+      </div>
       <div class="factionDiv eastern" id="eastern"></div>
-      <h3>Southern nations</h3>
+      <!-- southern -->
+
+      <div class="expandDiv">
+        <h3 class="faction-name">Southern nations</h3>
+
+        <button type="button" class="southern btn expandBtn" id="southernBtn">
+          expand
+        </button>
+      </div>
       <div class="factionDiv southern" id="southern"></div>
-      <h3>Slaves and Mercenaries</h3>
+      <!-- slaves and mercs -->
+
+      <div class="expandDiv">
+        <h3 class="faction-name">Slaves and Mercenaries</h3>
+
+        <button type="button" class="slaves btn expandBtn" id="slaveBtn">
+          expand
+        </button>
+      </div>
       <div class="factionDiv slaves" id="slaves"></div>
     </form>
 
     <script type="module" src="script.js"></script>
   </body>
+  <footer>
+    <div class="contacts">
+      <p class="footer-note">
+        source code and other modding tools for different games in the future:
+      </p>
+      <a class="github-link" href="https://github.com/DavidArabuli">
+        https://github.com/DavidArabuli
+      </a>
+    </div>
+  </footer>
 </html>

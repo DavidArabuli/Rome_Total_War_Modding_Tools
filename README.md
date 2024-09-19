@@ -6,7 +6,9 @@ Considering the amount of RTW units and their stat parameters, this makes attemp
 This app allows you to have a nice and simple form interface, error free workflow and ready to use text file,
 that you just need to throw into game directory and replace original export_descr_unit.txt file.
 
-It also features ability to save your work midway, to prevent losing your progress (by accidentally closing app etc). 
+> [!TIP]
+> It also features ability to save your work midway, to prevent losing your progress (by accidentally closing app etc).
+
 
 
 You can either visit a website where it is hosted (currently not hosted! But it is planned in near future),

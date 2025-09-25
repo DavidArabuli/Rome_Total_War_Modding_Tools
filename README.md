@@ -1,20 +1,16 @@
-Rome Total War modding app is created to allow fast and reliable modding of RTW unit roster stats.
+Rome: Total War Modding App was created to enable fast and reliable modification of RTW unit roster stats.
 
-The main problem game modder faces, is that he has to work with a wall of text, where even a single mistake or a typo will make game crash on loading.
-Considering the amount of RTW units and their stat parameters, this makes attempts to modify units incredibly frustrating and cumbersome process.
+The main problem game modders face is working with a massive wall of text, where even a single typo can cause the game to crash on loading. Considering the large number of RTW units and their many stat parameters, modifying units becomes an incredibly frustrating and cumbersome process.
 
-This app allows you to have a nice and simple form interface, error free workflow and ready to use text file,
-that you just need to throw into game directory and replace original export_descr_unit.txt file.
+This app provides a clean and simple form-based interface, an error-free workflow, and generates a ready-to-use text file that can replace the original export_descr_unit.txt file in the game directory.
 
 > [!TIP]
-> It also features ability to save your work midway, to prevent losing your progress (by accidentally closing app etc).
+> It also includes the ability to save your work midway to avoid losing progress (e.g., if you accidentally close the app).
 
 
 
-You can either visit a website where it is hosted (currently not hosted! But it is planned in near future),
-or just run it as localhost JS app. Any VSC live-server extension will do.
+You can either run it as a localhost JavaScript app (any VS Code Live Server extension will do) or access it via a hosted version Rome: Total War Modding App — [Live Demo](https://rtwmoddingtools.netlify.app/)
 
-It is build purely with vanilla JavaScript, no installation needed and there are no dependencies. 
+It is built purely with vanilla JavaScript, requiring no installation and no external dependencies.
 
-The idea was to create an app that would be relatively easy to adjust for other Creative Assembly games, where this kind of file format was used.
-Therefore, I tried to limit hardcoding to the minimum, and most of the content is dynamically parsed and generated.  
+The idea was to create an app that could be easily adapted to other Creative Assembly games using a similar file format. To achieve this, I minimized hardcoding and ensured most of the content is dynamically parsed and generated.

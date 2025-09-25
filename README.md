@@ -9,7 +9,7 @@ This app provides a clean and simple form-based interface, an error-free workflo
 
 
 
-You can either run it as a localhost JavaScript app (any VS Code Live Server extension will do) or access it via a hosted version Rome: Total War Modding App — [Live Demo](https://rtwmoddingtools.netlify.app/)
+You can either run it as a localhost JavaScript app (any VS Code Live Server extension will do) or access it via a hosted version Rome: Total War Modding App - [Live Demo](https://rtwmoddingtools.netlify.app/)
 
 It is built purely with vanilla JavaScript, requiring no installation and no external dependencies.
 
